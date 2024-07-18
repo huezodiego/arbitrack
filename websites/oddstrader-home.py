@@ -1,11 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-"""
-Credit: https://www.scrapingbee.com/blog/selenium-python/ 
-Issues with opening chromedriver (macOS Malicious Software Alert)?
-https://stackoverflow.com/questions/60362018/macos-catalinav-10-15-3-error-chromedriver-cannot-be-opened-because-the-de
-* Update every time after reinstalling new a driver.
-"""
+from selenium.webdriver.common.by import By
 
 DRIVER_PATH = "../drivers/chromedriver-mac-arm64/chromedriver"
 service = Service(executable_path=DRIVER_PATH)
@@ -16,9 +11,9 @@ options.add_argument("--window-size=1920,1200")
 
 driver = webdriver.Chrome(service=service, options=options)
 
-driver.get('https://www.nintendo.com')
-
-print(driver.page_source)
-
+driver.get('https://www.oddstrader.com')
+participant_containers = driver.find_element(By.CLASS_NAME, "participant")
+#name_containers = driver.find_element(By.XPATH, '/html/body/div/oddsGridRowContainer oddContainer lastOddContainer')
+print(participant_containers.text)
 driver.quit()
 

@@ -1,5 +1,4 @@
 # Arbitrack
-___
 ## Background
 Real-time tool that tracks arbitrage opportunities across major US Online Sportsbooks.
 
